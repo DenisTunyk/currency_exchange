@@ -5,7 +5,7 @@ export const Home = () => {
     <>
       <p>Home</p>
       <p>Input string for example: 15 USD in UAH</p>
-      <Form></Form>;
+      <Form></Form>
     </>
   );
 };
