@@ -3,3 +3,20 @@ export const getUserInfo = ({ latitude, longitude }) => {
   const urlPosition = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}&language=en`;
   return fetch(urlPosition).then(response => response.json());
 };
+
+var myHeaders = new Headers();
+//myHeaders.append('apikey', 'J8iAA4gLyi21VaOzO41YHPD0WWHgXEbi');
+myHeaders.append('apikey', 'Bqf0jgud3HsN3E435u3LbG7qgqDyjvOj');
+
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow',
+  headers: myHeaders,
+};
+
+export const exChange = (to, from, amount) => {
+  return fetch(
+    `https://api.apilayer.com/fixer/convert?to=${to}&from=${from}&amount=${amount}`,
+    requestOptions
+  ).then(response => response.json());
+};
