@@ -7,8 +7,9 @@ export const fetchBaseCurrency = createAsyncThunk(
   async (loc, thunkAPI) => {
     try {
       const res = await getUserInfo(loc);
-      console.log(res);
-      return res.results[0].annotations.currency.iso_code;
+      //console.log(res);
+      //return res.results[0].annotations.currency.iso_code;
+      return res.results[0].formatted;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
