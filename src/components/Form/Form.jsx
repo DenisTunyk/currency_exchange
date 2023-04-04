@@ -1,6 +1,6 @@
 import { exChange } from 'service/service';
 
-export const Form = () => {
+export const Form = ({ onChange }) => {
   const handleSubmit = e => {
     e.preventDefault(e.target.value);
     const data = e.target.elements.currency.value;
@@ -11,7 +11,10 @@ export const Form = () => {
     const from = arrData[1];
     const amount = arrData[0];
 
-    exChange(to, from, amount).then(data => console.log(data));
+    exChange(to, from, amount).then(data => {
+      onChange(data.result);
+      //console.log(data.result);
+    });
 
     e.target.reset();
   };
